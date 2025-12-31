@@ -551,4 +551,65 @@ echo -e "   Si esto no funciona PEGA ESTOS COMANDOS  "
 echo -e "   sudo ufw allow 81 && sudo ufw allow 8888 "
 msg -bar3
 echo -e "             sudo apt purge ufw -y"
+invalid_key && exit
+}
+[[ -d /etc/alx ]] || mkdir /etc/alx
+[[ -e /etc/folteto ]] && rm -f /etc/folteto
+[[ -e /bin/ejecutar/IPcgh ]] && rm -f /bin/ejecutar/IPcgh
+msg -bar3
+function_verify
+fun_install "${clean_input}"
+else
 invalid_key
+fi
+sudo sync
+echo 3 > /proc/sys/vm/drop_caches
+sysctl -w vm.drop_caches=3 > /dev/null 2>&1
+}
+[[ -e /etc/PACKAGE ]] || update_pak
+clear&&clear
+rutaSCRIPT ${distro} ${vercion}
+rm -f setup* lista*
+_temp="$(mktemp)"
+chmod +x ${_temp}
+funkey
+tittle
+echo -e " TIEMPO DE EJECUCION $((($(date +%s)-$TIME_START)/60)) min."
+msg -bar3
+cat <<MENU > ${_temp}
+sleep 2s
+cd $HOME
+rm -f "${0}" &>/dev/null || true
+if command -v menu >/dev/null 2>&1; then
+echo -e "\n TIEMPO DE EJECUCION $((($(date +%s)-$TIME_START)/60))"
+echo -e "INSTALL COMPLETED! WRITE menu"
+else
+echo -e " INSTALACION NO COMPLETADA CON EXITO !"
+fi
+kill $(ps x | grep setup | grep -v grep| cut -d ' '  -f3) &>/dev/null
+rm -f setup* lista* &>/dev/null
+exit&&exit&&exit
+MENU
+tput cuu1 && tput dl1
+tput cuu1 && tput dl1
+echo -e " ${aLerT} RESTART IS RECOMMENDED TO OPTIMIZE PACKAGES ${aLerT}"
+echo -ne " DO YOU WANT TO RESTART?:"
+read -p " [Y/N]: " -e -i n rac
+[[ "$rac" = @(s|S|y|Y) ]] && {
+countdown 5
+}
+tput cuu1 && tput dl1
+tput cuu1 && tput dl1
+read -p " $( echo -e "PRESIONA ENTER PARA FINALIZAR INSTALACION \n $(msg -bar3)")"
+[[ -e "$(which menu)" ]] && bash ${_temp} &
+[[ -d /USERS ]] && mv /USERS/* /etc/adm-lite/userDIR/ &>/dev/null && rm -rf /USERS
+exit
+tput cuu1 && tput dl1
+tput cuu1 && tput dl1
+} || {
+echo -e " NO SE RECIVIO PARAMETROS "
+rm -f setup*
+rm -f /etc/folteto
+rm -rf /tmp/*
+}
+
